@@ -11,3 +11,4 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img width="1727" alt="Screenshot 2024-08-25 at 13 53 18" src="https://github.com/user-attachments/assets/1dfdad00-fcb9-40a4-8819-1195811a5bf7">
