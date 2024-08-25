@@ -14,6 +14,7 @@ const config: Config = {
       },
       fontSize: {
         base: '44px',
+        sm: '12px',
         md: '24px',
         xl: '48px',
         '2xl': '96px',
