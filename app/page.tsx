@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   return (
     <>
       <main className="p-24 text-md">
-        Train from Bergshamra
+        Train from Bergshamra to:
         <Departures />
       </main>
       <VersionLabel />
