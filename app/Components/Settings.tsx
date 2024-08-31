@@ -48,7 +48,7 @@ export function Settings() {
     };
 
     return (
-        <div>
+        <div className='absolute bottom-10 right-5'>
             <Popover.Root>
                 <Popover.Trigger asChild>
                     <button
@@ -73,15 +73,7 @@ export function Settings() {
                         <Popover.Close
                             aria-label="Close"
                             onClick={handleSave}
-                            style={{
-                                display: 'block',
-                                backgroundColor: 'black',
-                                color: 'white',
-                                padding: '10px 20px',
-                                cursor: 'pointer',
-                                width: '100%',
-                                marginTop: '10px',
-                            }}
+                            className='block bg-black text-white p-2 w-full mt-3'
                         >
                             Save
                         </Popover.Close>

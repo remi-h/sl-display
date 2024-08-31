@@ -21,7 +21,7 @@ export const Departures: React.FC<DeparturesProps> = ({ forecastTime }) => {
             const data = await getDepartures(9202, 'METRO', 2, 14, forecastTime);
             setDepartures(data);
         } catch (err) {
-            setError('Failed to fetch departures');
+            setError('Failed to fetch departures, reload');
         } finally {
             setLoading(false);
         }
@@ -34,7 +34,7 @@ export const Departures: React.FC<DeparturesProps> = ({ forecastTime }) => {
     }, [fetchDepartures]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className='py-10'>Loading...</div>;
     }
 
     if (error) {

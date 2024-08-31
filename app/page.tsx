@@ -7,10 +7,10 @@ import { Settings } from "./Components/Settings";
 const Home: React.FC = () => {
   return (
     <main className="p-24 text-md">
-      {/* <Settings/> */}
       Departures from Bergshamra:
       <Departures forecastTime={60} />
       <VersionLabel />
+      <Settings/>
     </main>
   );
 }
