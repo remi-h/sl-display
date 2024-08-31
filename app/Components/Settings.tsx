@@ -7,9 +7,9 @@ interface UserInputProps {
     label: string;
     value: string | number;
     type: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const UserInput: React.FC<UserInputProps> = ({ label, value, type, onChange }) => {
+const UserInput: React.FC<UserInputProps> = ({ label, type, value, onChange }) => {
     return (
         <div className='flex items-center p-1'>
             <Label.Root className="w-36">
@@ -31,20 +31,13 @@ export function Settings() {
     const [line, setLine] = useState<number>(14);
     const [forecast, setForecast] = useState<number>(60);
 
-    const [tempTrainFrom, setTempTrainFrom] = useState<string>(trainFrom);
-    const [tempDirection, setTempDirection] = useState<number>(direction);
-    const [tempLine, setTempLine] = useState<number>(line);
-    const [tempForecast, setTempForecast] = useState<number>(forecast);
-
     const handleSave = () => {
-        setTrainFrom(tempTrainFrom);
-        setDirection(tempDirection);
-        setLine(tempLine);
-        setForecast(tempForecast);
-        console.log('Train from:', tempTrainFrom);
-        console.log('Direction:', tempDirection);
-        console.log('Line:', tempLine);
-        console.log('Forecast:', tempForecast);
+        setTrainFrom(trainFrom);
+        setDirection(direction);
+        setLine(line);
+        setForecast(forecast);
+
+        console.log('settings updated');
     };
 
     return (
@@ -65,11 +58,33 @@ export function Settings() {
                         alignOffset={-20}
                         sideOffset={5}
                     >
-                        <UserInput label='Train from' type="text" value={tempTrainFrom} onChange={(e) => setTempTrainFrom(e.target.value)} />
-                        {/* <UserInput label='Transportation' type="text" value="METRO" onChange={(e) => setTransportation(e.target.value)} /> */}
-                        <UserInput label='Direction' type="number" value={tempDirection} onChange={(e) => setTempDirection(Number(e.target.value))} />
-                        <UserInput label='Line' type="number" value={tempLine} onChange={(e) => setTempLine(Number(e.target.value))} />
-                        <UserInput label='Forecast' type="number" value={tempForecast} onChange={(e) => setTempForecast(Number(e.target.value))} />
+                        <p className='text-red-500'>This is not working right now</p>
+                        <UserInput
+                            label='Train from'
+                            type="text"
+                            value={trainFrom}
+                            onChange={(e) => setTrainFrom(e.target.value)}
+                        />
+                        {/* <UserInput label='Transportation' type="text" value={} /> */}
+                        <UserInput
+                            label='Direction'
+                            type="radio"
+                            value={direction}
+                            onChange={(e) => setDirection(Number(e.target.value))}
+                        />
+                        <UserInput
+                            label='Line'
+                            type="number"
+                            value={line}
+                            onChange={(e) => setLine(Number(e.target.value))}
+                        />
+                        <UserInput
+                            label='Forecast'
+                            type="number"
+                            value={forecast}
+                            onChange={(e) => setForecast(Number(e.target.value))}
+                        />
+
                         <Popover.Close
                             aria-label="Close"
                             onClick={handleSave}
